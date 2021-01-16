@@ -1,14 +1,37 @@
 # username_generator
 
-A new Flutter package project.
+Simple library for random and seedable username generators yto use in flutter and dart
 
-## Getting Started
+## Usage
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+A simple usage example:
+```dart
+import 'package:username_generator/username_generator.dart';
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+main() {
+  UsernameGenerator generator = new UsernameGenerator();
+
+  print(generator.generateRandom());
+  // limitation_virulent_1
+
+  print(generator.generateForName("John"));
+  // john_47
+
+  print(generator.generateForName("John", lastName: "Doe"));
+  // 36_john_doe
+
+  print(generator.generateForName("John", lastName: "Doe", hasNumbers: false));
+  // doe_john
+
+   print( generator.generateForName("John",
+                                    lastName: "Doe", 
+                                    adjectives: ["ready", "happy"]),
+                                    );
+      // doe_john_10_ready
+}
+
+## Features and bugs
+
+Please file feature requests and bugs at the [issue tracker][tracker].
+
+[tracker]: https://github.com/prikeshsavla/username_generator.dart/issues
