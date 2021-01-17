@@ -1,6 +1,6 @@
 # username_generator
 
-Simple library for random and seedable username generators to use in flutter and dart
+Simple library for random and seedable username generators
 
 ## Usage
 
