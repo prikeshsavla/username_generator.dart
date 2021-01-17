@@ -17,3 +17,7 @@
 ## [0.2.2] - Updated dependencies.
 
 * Removed Flutter dependency
+
+## [0.2.3] - Add comments and refactor code.
+
+* Add changes based on analysis options from [Effective Dart](https://dart.dev/guides/language/effective-dart)

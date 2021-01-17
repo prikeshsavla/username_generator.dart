@@ -1,13 +1,13 @@
 import 'package:test/test.dart';
 
-import 'package:username_generator/username_generator.dart';
+import 'package:username_generator/src/username_generator.dart';
 
 void main() {
   group('generate a random username', () {
     final usernameGenerator = UsernameGenerator();
-    String username = usernameGenerator.generateRandom();
+    var username = usernameGenerator.generateRandom();
     test('where username contains numbers', () {
-      RegExp maxThreeDigits = new RegExp(
+      var maxThreeDigits = RegExp(
         r"\d{1,3}",
         caseSensitive: false,
         multiLine: false,
@@ -17,7 +17,7 @@ void main() {
     });
 
     test('where username contains letters', () {
-      RegExp containsLetters = new RegExp(
+      var containsLetters = RegExp(
         r"[a-z]+",
         caseSensitive: false,
         multiLine: false,
@@ -27,9 +27,9 @@ void main() {
   });
   group('generate a username for first name Prikesh', () {
     final usernameGenerator = UsernameGenerator();
-    String username = usernameGenerator.generateForName("Prikesh");
+    var username = usernameGenerator.generateForName("Prikesh");
     print("Username: $username");
-    RegExp maxThreeDigits = new RegExp(
+    var maxThreeDigits = RegExp(
       r"\d{1,3}",
       caseSensitive: false,
       multiLine: false,
@@ -39,7 +39,7 @@ void main() {
     });
 
     test('where username contains letters', () {
-      RegExp containsLetters = new RegExp(
+      var containsLetters = RegExp(
         r"[a-z]+",
         caseSensitive: false,
         multiLine: false,
@@ -48,8 +48,6 @@ void main() {
     });
     test('where username contains the word prikesh', () {
       expect(username, contains("prikesh"));
-
-      // expect(() => usernameGenerator.generateForName(null), throwsNoSuchMethodError);
     });
     test('where hasNumbers is false ', () {
       expect(
