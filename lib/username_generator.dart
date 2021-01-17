@@ -4,10 +4,9 @@ import 'dart:math';
 
 import 'package:username_generator/username_generator_data.dart';
 
-
 /// A Username Generator.
 class UsernameGenerator {
-  String seperator = '_';
+  String separator = '_';
   List<String> names = UsernameGeneratorData.names;
   List<String> adjectives = UsernameGeneratorData.adjectives;
   Random _random = new Random();
@@ -19,14 +18,14 @@ class UsernameGenerator {
     adjectives = adjectives;
   }
 
-  void setSeperator(seperator) {
-    seperator = seperator;
+  void setSeparator(separator) {
+    separator = separator;
   }
 
   /// Returns generater Username
   String generateRandom() {
     int ranSuffix = (_random.nextDouble() * 100).ceil();
-    //${adjectives[ran_b]}${seperator}${names[ran_a]}
+    //${adjectives[ran_b]}${separator}${names[ran_a]}
     return joinWithSeparator([
       _getRandomElement(adjectives),
       _getRandomElement(names),
@@ -40,8 +39,8 @@ class UsernameGenerator {
       bool hasNumbers = true,
       int numberSeed = 100}) {
     List<String> names = [
-      [lastName, firstName].join(seperator),
-      [firstName, lastName].join(seperator),
+      [lastName, firstName].join(separator),
+      [firstName, lastName].join(separator),
       firstName,
       lastName
     ].where((element) => element.length > 0).toList();
@@ -58,13 +57,13 @@ class UsernameGenerator {
       numberString = (_random.nextDouble() * numberSeed).ceil().toString();
     }
     List<String> result = [adjective, name, numberString];
-    //${adjectives[ran_b]}${seperator}${names[ran_a]}
+    //${adjectives[ran_b]}${separator}${names[ran_a]}
     return joinWithSeparator(
         result.where((element) => element.length > 0).toList()..shuffle());
   }
 
   String joinWithSeparator(List<dynamic> result) {
-    return result.join(seperator).toLowerCase();
+    return result.join(separator).toLowerCase();
   }
 
   dynamic _getRandomElement(List<dynamic> list) {
