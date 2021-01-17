@@ -1,8 +1,8 @@
 name: username_generator
-description: A new Flutter package project.
-version: 0.0.1
-author:
+description: Simple library for random and seedable username generators yto use in flutter and dart
+version: 0.2.0
 homepage:
+repository: https://github.com/prikeshsavla/username_generator.dart
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

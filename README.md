@@ -35,3 +35,8 @@ main() {
 Please file feature requests and bugs at the [issue tracker][tracker].
 
 [tracker]: https://github.com/prikeshsavla/username_generator.dart/issues
+
+
+## Future Additions
+
+- Generate a certain number of usernames
