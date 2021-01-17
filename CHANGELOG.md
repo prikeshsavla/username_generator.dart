@@ -13,3 +13,7 @@
 ## [0.2.1] - Minor bugfixes.
 
 * Minor bugfixes
+
+## [0.2.2] - Updated dependencies.
+
+* Removed Flutter dependency
