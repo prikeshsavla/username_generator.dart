@@ -10,3 +10,6 @@
 * Added support to set first and lastname
 * Added support to set ajectives and numbers to the username
 
+## [0.2.1] - Minor bugfixes.
+
+* Minor bugfixes
