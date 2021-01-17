@@ -21,3 +21,9 @@
 ## [0.2.3] - Add comments and refactor code.
 
 * Add changes based on analysis options from [Effective Dart](https://dart.dev/guides/language/effective-dart)
+
+## [0.2.4] - Refactor code for proper documentation.
+
+* Refactor code for proper documentation
+* Removed UsernameGeneratorData class
+* Add library level comment for `dartdoc`
