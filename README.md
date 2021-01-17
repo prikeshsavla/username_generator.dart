@@ -29,7 +29,7 @@ main() {
                                     );
       // doe_john_10_ready
 }
-
+```
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
@@ -38,5 +38,4 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 
 ## Future Additions
-
 - Generate a certain number of usernames

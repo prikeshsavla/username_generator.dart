@@ -1,6 +1,6 @@
-library username_generator;
-
+/// A UsernameGeneratorData
 class UsernameGeneratorData {
+  /// List of preseeded Names
   static const List<String> names = [
     "bounderby",
     "honeythunder",
@@ -11204,6 +11204,8 @@ class UsernameGeneratorData {
     "geosector",
     "camisole"
   ];
+
+  /// List of preseeded Adjectives
   static const List<String> adjectives = [
     "Amazing",
     "Awesome",

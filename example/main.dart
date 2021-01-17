@@ -1,7 +1,8 @@
-import 'package:username_generator/username_generator.dart';
+import 'package:username_generator/src/username_generator.dart';
 
-main() {
-  UsernameGenerator generator = new UsernameGenerator();
+/// main function to start example
+void main() {
+  var generator = UsernameGenerator();
 
   print(generator.generateRandom());
   // limitation_virulent_1
