@@ -80,7 +80,7 @@ class UsernameGenerator {
       List<String> adjectives = const [],
       bool hasNumbers = true,
       int numberSeed = 100,
-      length: 1}) {
+      int length = 1}) {
     var usernames = <String>[];
     for (var i = 0; i < length; i++) {
       usernames.add(generateForName(
