@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import 'package:username_generator/src/username_generator.dart';
+import 'package:username_generator/username_generator.dart';
 
 void main() {
   group('generate a random username', () {
@@ -25,10 +25,9 @@ void main() {
       expect(containsLetters.hasMatch(username), true);
     });
   });
-  group('generate a username for first name Prikesh', () {
+  group('generate a username for first name John', () {
     final usernameGenerator = UsernameGenerator();
-    var username = usernameGenerator.generateForName("Prikesh");
-    print("Username: $username");
+    var username = usernameGenerator.generateForName("John");
     var maxThreeDigits = RegExp(
       r"\d{1,3}",
       caseSensitive: false,
@@ -46,14 +45,24 @@ void main() {
       );
       expect(containsLetters.hasMatch(username), true);
     });
-    test('where username contains the word prikesh', () {
-      expect(username, contains("prikesh"));
+    test('where username contains the word john', () {
+      expect(username, contains("john"));
     });
     test('where hasNumbers is false ', () {
       expect(
           maxThreeDigits.hasMatch(
-              usernameGenerator.generateForName("Prikesh", hasNumbers: false)),
+              usernameGenerator.generateForName("John", hasNumbers: false)),
           false);
+    });
+  });
+
+  group('generate a list of usernames for John Doe', () {
+    final usernameGenerator = UsernameGenerator();
+
+    test('where it returns a list of 5 items', () {
+      var usernames = usernameGenerator.generateListForName("John",
+          lastName: "Doe", length: 5);
+      expect(usernames, allOf([hasLength(5), isA<List<String>>()]));
     });
   });
 }
