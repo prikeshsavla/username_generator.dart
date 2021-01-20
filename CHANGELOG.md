@@ -31,3 +31,6 @@
 ## [1.0.0] Add Support for a list of usernames
 * Add function to return a list of usernames
 * Refactor seed data
+
+## [1.0.1] Add Support for a list of usernames
+* Minor bug fixes
