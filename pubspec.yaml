@@ -1,6 +1,6 @@
 name: username_generator
-description: Simple library for random and seedable username generators
-version: 0.2.4
+description: A simple library for generating random and seedable username for emails or user forms 
+version: 1.0.0
 homepage: https://github.com/prikeshsavla/username_generator.dart
 repository: https://github.com/prikeshsavla/username_generator.dart
 

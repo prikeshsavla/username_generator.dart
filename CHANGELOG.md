@@ -27,3 +27,7 @@
 * Refactor code for proper documentation
 * Removed UsernameGeneratorData class
 * Add library level comment for `dartdoc`
+
+## [1.0.0] Add Support for a list of usernames
+* Add function to return a list of usernames
+* Refactor seed data

@@ -1,4 +1,4 @@
-import 'package:username_generator/src/username_generator.dart';
+import 'package:username_generator/username_generator.dart';
 
 /// main function to start example
 void main() {
@@ -21,4 +21,16 @@ void main() {
         lastName: "Doe", adjectives: ["ready", "happy"]),
   );
   // doe_john_10_ready
+
+  print(
+    generator.generateListForName("John",
+        lastName: "Doe", adjectives: ["ready", "happy"], length: 5),
+  );
+  // [
+  // happy_doe_john_12,
+  // 24_john_happy,
+  // 70_ready_john,
+  // 47_doe_ready,
+  // ready_john_87
+  // ]
 }
