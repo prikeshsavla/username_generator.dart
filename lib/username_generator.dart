@@ -18,30 +18,50 @@ class UsernameGenerator {
   List<String> adjectives = seed_data.adjectives;
   final Random _random = Random();
 
-  /// Overwrite seeded names
-  void setNames(List<String> names) {
-    names = names;
-  }
+  /// Generate username from email or name, date or numbers
+  String generate(String base,
+      {List<String> adjectives = const [],
+      DateTime date,
+      bool hasNumbers = true,
+      int numberSeed = 100}) {
+    // Check if base is email
+    if (base.indexOf("@") != -1) {
+      base = base
+          .substring(0, base.indexOf("@"))
+          .replaceAll(RegExp(r"[^a-zA-Z\d]"), "");
+    }
 
-  /// Overwrite seeded adjectives
-  void setAdjectives(List<String> adjectives) {
-    adjectives = adjectives;
-  }
+    base = base
+        .trim()
+        .replaceAll(RegExp(r"[^a-zA-Z\d\s]"), " ")
+        .replaceAll(RegExp(r"\s{2,}"), " ")
+        .replaceAll(" ", separator);
 
-  /// Change username separator
-  void setSeparator(String separator) {
-    separator = separator;
-  }
+    // generate date string
+    var dateString = "";
+    if (date != null) {
+      dateString = _getRandomElement([
+        date.year.toString(),
+        date.year.toString().substring(2, 4),
+        date.day.toString(),
+        date.month.toString().padLeft(2, "0")
+      ]);
+    }
 
-  /// Returns generater Username
-  String generateRandom() {
-    var ranSuffix = (_random.nextDouble() * 100).ceil();
-    //${adjectives[ran_b]}${separator}${names[ran_a]}
-    return _joinWithSeparator([
-      _getRandomElement(adjectives),
-      _getRandomElement(names),
-      ranSuffix
-    ]..shuffle());
+    var adjective = "";
+    if (adjectives.isNotEmpty) {
+      adjective = _getRandomElement(adjectives);
+    }
+
+    var numberString = "";
+    if (dateString == "" && hasNumbers) {
+      numberString = _random.nextInt(numberSeed).toString();
+    }
+
+    return [adjective, base, dateString, numberString]
+        .where((element) => element.isNotEmpty)
+        .join(separator)
+        .toLowerCase();
   }
 
   /// Generate username for first and lastname
@@ -51,27 +71,39 @@ class UsernameGenerator {
       bool hasNumbers = true,
       int numberSeed = 100}) {
     var names = [
-      [lastName, firstName].join(separator),
-      [firstName, lastName].join(separator),
+      [lastName, firstName].join(" "),
+      [firstName, lastName].join(" "),
+      [firstName, lastName].join(),
       firstName,
       lastName
     ].where((element) => element.isNotEmpty).toList();
 
     String name = _getRandomElement(names);
 
-    var adjective = "";
-    if (adjectives.isNotEmpty) {
-      adjective = _getRandomElement(adjectives);
+    //${adjectives[ran_b]}${separator}${names[ran_a]}
+    return generate(name,
+        adjectives: adjectives, hasNumbers: hasNumbers, numberSeed: numberSeed);
+  }
+
+  /// Generates a list of username for first and lastname
+  List<String> generateList(String base,
+      {List<String> adjectives = const [],
+      DateTime date,
+      bool hasNumbers = true,
+      int numberSeed = 100,
+      int length = 1}) {
+    var usernames = <String>[];
+    for (var i = 0; i < length; i++) {
+      usernames.add(generate(
+        base,
+        date: date,
+        adjectives: adjectives,
+        hasNumbers: hasNumbers,
+        numberSeed: numberSeed,
+      ));
     }
 
-    var numberString = "";
-    if (hasNumbers) {
-      numberString = (_random.nextDouble() * numberSeed).ceil().toString();
-    }
-    var result = [adjective, name, numberString];
-    //${adjectives[ran_b]}${separator}${names[ran_a]}
-    return _joinWithSeparator(
-        result.where((element) => element.isNotEmpty).toList()..shuffle());
+    return usernames;
   }
 
   /// Generates a list of username for first and lastname
@@ -95,9 +127,13 @@ class UsernameGenerator {
     return usernames;
   }
 
-  /// Join Array string using the separator
-  String _joinWithSeparator(List<dynamic> result) {
-    return result.join(separator).toLowerCase();
+  /// Returns generater Username
+  String generateRandom() {
+    var ranSuffix = _random.nextInt(100);
+    //${adjectives[ran_b]}${separator}${names[ran_a]}
+    return [_getRandomElement(adjectives), _getRandomElement(names), ranSuffix]
+        .join(separator)
+        .toLowerCase();
   }
 
   /// Get a random element from the list given
