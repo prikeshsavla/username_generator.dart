@@ -18,7 +18,7 @@ class UsernameGenerator {
   List<String> adjectives = seed_data.adjectives;
   final Random _random = Random();
 
-  /// Generate username from baseString
+  /// Generate username from email or name, date or numbers
   String generate(String base,
       {List<String> adjectives = const [],
       DateTime date,
