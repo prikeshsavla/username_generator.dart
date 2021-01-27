@@ -34,3 +34,9 @@
 
 ## [1.0.1] Add Support for a list of usernames
 * Minor bug fixes
+
+## [1.1.0] Add Support for generating usernames by email and date
+* Refactor code
+* Add `generate` method to generate usernames from seeded string
+* Add support for email and date in generate method
+* Add tests for new generate method
