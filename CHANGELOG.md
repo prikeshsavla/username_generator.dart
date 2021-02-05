@@ -40,3 +40,7 @@
 * Add `generate` method to generate usernames from seeded string
 * Add support for email and date in generate method
 * Add tests for new generate method
+
+## [1.1.1] Add Support for generating usernames by email and date
+* Refactor code
+* Fix pedantic code style guide issues
