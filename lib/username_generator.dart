@@ -25,36 +25,36 @@ class UsernameGenerator {
       bool hasNumbers = true,
       int numberSeed = 100}) {
     // Check if base is email
-    if (base.indexOf("@") != -1) {
+    if (base.contains('@')) {
       base = base
-          .substring(0, base.indexOf("@"))
-          .replaceAll(RegExp(r"[^a-zA-Z\d]"), "");
+          .substring(0, base.indexOf('@'))
+          .replaceAll(RegExp(r'[^a-zA-Z\d]'), '');
     }
 
     base = base
         .trim()
-        .replaceAll(RegExp(r"[^a-zA-Z\d\s]"), " ")
-        .replaceAll(RegExp(r"\s{2,}"), " ")
-        .replaceAll(" ", separator);
+        .replaceAll(RegExp(r'[^a-zA-Z\d\s]'), ' ')
+        .replaceAll(RegExp(r'\s{2,}'), ' ')
+        .replaceAll(' ', separator);
 
     // generate date string
-    var dateString = "";
+    var dateString = '';
     if (date != null) {
       dateString = _getRandomElement([
         date.year.toString(),
         date.year.toString().substring(2, 4),
         date.day.toString(),
-        date.month.toString().padLeft(2, "0")
+        date.month.toString().padLeft(2, '0')
       ]);
     }
 
-    var adjective = "";
+    var adjective = '';
     if (adjectives.isNotEmpty) {
       adjective = _getRandomElement(adjectives);
     }
 
-    var numberString = "";
-    if (dateString == "" && hasNumbers) {
+    var numberString = '';
+    if (dateString == '' && hasNumbers) {
       numberString = _random.nextInt(numberSeed).toString();
     }
 
@@ -66,13 +66,13 @@ class UsernameGenerator {
 
   /// Generate username for first and lastname
   String generateForName(String firstName,
-      {String lastName = "",
+      {String lastName = '',
       List<String> adjectives = const [],
       bool hasNumbers = true,
       int numberSeed = 100}) {
     var names = [
-      [lastName, firstName].join(" "),
-      [firstName, lastName].join(" "),
+      [lastName, firstName].join(' '),
+      [firstName, lastName].join(' '),
       [firstName, lastName].join(),
       firstName,
       lastName
@@ -108,7 +108,7 @@ class UsernameGenerator {
 
   /// Generates a list of username for first and lastname
   List<String> generateListForName(String firstName,
-      {String lastName = "",
+      {String lastName = '',
       List<String> adjectives = const [],
       bool hasNumbers = true,
       int numberSeed = 100,
