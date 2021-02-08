@@ -61,3 +61,7 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 
 ## Roadmap   
+
+<a href="https://trackgit.com">
+<img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/kktasp39dxk2efhp04sk" alt="trackgit-views" />
+</a>
