@@ -49,3 +49,8 @@
 * Refactor code
 * Add Support for restricting date year 
 * Add prefix and suffix
+
+
+## [1.2.3] Fix example typos
+* Refactor code
+* Fix example typos
