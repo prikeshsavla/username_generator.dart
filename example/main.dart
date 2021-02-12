@@ -4,8 +4,8 @@ import 'package:username_generator/username_generator.dart';
 void main() {
   var generator = UsernameGenerator();
 
-  //default separator is '_'
-  generator.separator = '_'; // optional
+  //default separator is "_"
+  generator.separator = '.'; // optional
 
   print(generator.generateRandom());
   // limitation_virulent_1
@@ -19,10 +19,24 @@ void main() {
   print(generator.generate('John Doe', hasNumbers: false));
   // john_doe
 
+  print(generator.generate('John Doe',
+      hasNumbers: false, prefix: 'admin', suffix: 'ops'));
+  // admin_john_doe_ops
+
   print(generator.generate('johndoe@example.com',
       date: DateTime.parse('1996-01-15')));
   // johndoe_96
- 
+
+  print(generator.generate('johndoe@example.com',
+      date: DateTime.parse('1996-01-15'), shortYear: false));
+  // johndoe_1996
+
+  print(
+    generator.generateForName('John',
+        lastName: 'Doe', adjectives: ['ready', 'happy']),
+  );
+  // doe_john_10_ready
+
   print(
     generator.generateForName('John',
         lastName: 'Doe', adjectives: ['ready', 'happy']),
