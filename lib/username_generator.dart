@@ -19,19 +19,22 @@ class UsernameGenerator {
   final Random _random = Random();
 
   /// Generate username from email or name, date or numbers
-  String generate(String base,
+  String generate(String emailOrName,
       {List<String> adjectives = const [],
       DateTime date,
       bool hasNumbers = true,
-      int numberSeed = 100}) {
-    // Check if base is email
-    if (base.contains('@')) {
-      base = base
-          .substring(0, base.indexOf('@'))
+      int numberSeed = 100,
+      String prefix = '',
+      String suffix = '',
+      bool shortYear = true}) {
+    // Check if emailOrName is email
+    if (emailOrName.contains('@')) {
+      emailOrName = emailOrName
+          .substring(0, emailOrName.indexOf('@'))
           .replaceAll(RegExp(r'[^a-zA-Z\d]'), '');
     }
 
-    base = base
+    emailOrName = emailOrName
         .trim()
         .replaceAll(RegExp(r'[^a-zA-Z\d\s]'), ' ')
         .replaceAll(RegExp(r'\s{2,}'), ' ')
@@ -40,12 +43,11 @@ class UsernameGenerator {
     // generate date string
     var dateString = '';
     if (date != null) {
-      dateString = _getRandomElement([
-        date.year.toString(),
-        date.year.toString().substring(2, 4),
-        date.day.toString(),
-        date.month.toString().padLeft(2, '0')
-      ]);
+      if (shortYear) {
+        dateString = date.year.toString().substring(2, 4);
+      } else {
+        dateString = date.year.toString();
+      }
     }
 
     var adjective = '';
@@ -58,7 +60,7 @@ class UsernameGenerator {
       numberString = _random.nextInt(numberSeed).toString();
     }
 
-    return [adjective, base, dateString, numberString]
+    return [prefix, adjective, emailOrName, dateString, numberString, suffix]
         .where((element) => element.isNotEmpty)
         .join(separator)
         .toLowerCase();
@@ -86,7 +88,7 @@ class UsernameGenerator {
   }
 
   /// Generates a list of username for first and lastname
-  List<String> generateList(String base,
+  List<String> generateList(String emailOrName,
       {List<String> adjectives = const [],
       DateTime date,
       bool hasNumbers = true,
@@ -95,7 +97,7 @@ class UsernameGenerator {
     var usernames = <String>[];
     for (var i = 0; i < length; i++) {
       usernames.add(generate(
-        base,
+        emailOrName,
         date: date,
         adjectives: adjectives,
         hasNumbers: hasNumbers,
