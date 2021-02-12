@@ -5,7 +5,7 @@ void main() {
   var generator = UsernameGenerator();
 
   //default separator is "_"
-  generator.separator = '.'; // optional
+  generator.separator = '_'; // optional
 
   print(generator.generateRandom());
   // limitation_virulent_1
