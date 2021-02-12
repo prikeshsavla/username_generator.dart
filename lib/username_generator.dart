@@ -93,16 +93,20 @@ class UsernameGenerator {
       DateTime date,
       bool hasNumbers = true,
       int numberSeed = 100,
+      String prefix = '',
+      String suffix = '',
+      bool shortYear = true,
       int length = 1}) {
     var usernames = <String>[];
     for (var i = 0; i < length; i++) {
-      usernames.add(generate(
-        emailOrName,
-        date: date,
-        adjectives: adjectives,
-        hasNumbers: hasNumbers,
-        numberSeed: numberSeed,
-      ));
+      usernames.add(generate(emailOrName,
+          date: date,
+          adjectives: adjectives,
+          hasNumbers: hasNumbers,
+          numberSeed: numberSeed,
+          shortYear: shortYear,
+          prefix: prefix,
+          suffix: suffix));
     }
 
     return usernames;
