@@ -44,3 +44,8 @@
 ## [1.1.1] Add Support for generating usernames by email and date
 * Refactor code
 * Fix pedantic code style guide issues
+
+## [1.2.2] Add Support for restricting date year and add prefix and suffix
+* Refactor code
+* Add Support for restricting date year 
+* Add prefix and suffix
