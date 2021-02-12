@@ -1,10 +1,9 @@
 # username_generator
 
- [![pub package](https://img.shields.io/pub/v/username_generator.svg)](https://pub.dev/packages/username_generator) [![pub points](https://badges.bar/username_generator/pub%20points)](https://pub.dev/packages/username_generator/score)  [![popularity](https://badges.bar/username_generator/popularity)](https://pub.dev/packages/username_generator/score) [![likes](https://badges.bar/username_generator/likes)](https://pub.dev/packages/username_generator/score) |
+ [![pub package](https://img.shields.io/pub/v/username_generator.svg)](https://pub.dev/packages/username_generator) [![pub points](https://badges.bar/username_generator/pub%20points)](https://pub.dev/packages/username_generator/score)  [![popularity](https://badges.bar/username_generator/popularity)](https://pub.dev/packages/username_generator/score) [![likes](https://badges.bar/username_generator/likes)](https://pub.dev/packages/username_generator/score)
 
 A simple library for generating random and seedable username for emails or user forms
 
-#
 
 ## Usage
 
