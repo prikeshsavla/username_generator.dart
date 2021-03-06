@@ -21,7 +21,7 @@ class UsernameGenerator {
   /// Generate username from email or name, date or numbers
   String generate(String emailOrName,
       {List<String> adjectives = const [],
-      DateTime date,
+      DateTime? date,
       bool hasNumbers = true,
       int numberSeed = 100,
       String prefix = '',
@@ -90,7 +90,7 @@ class UsernameGenerator {
   /// Generates a list of username for first and lastname
   List<String> generateList(String emailOrName,
       {List<String> adjectives = const [],
-      DateTime date,
+      DateTime? date,
       bool hasNumbers = true,
       int numberSeed = 100,
       String prefix = '',
