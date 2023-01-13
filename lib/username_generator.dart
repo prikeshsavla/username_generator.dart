@@ -134,13 +134,23 @@ class UsernameGenerator {
   }
 
   /// Returns generater Username
-  String generateRandom() {
+String generateRandom({int characterLength = 12}) {
+    // Create a variable that holds a random integer between 0 and 99
     var ranSuffix = _random.nextInt(100);
-    //${adjectives[ran_b]}${separator}${names[ran_a]}
-    return [_getRandomElement(adjectives), _getRandomElement(names), ranSuffix]
+    // Concatenate a random element from the `adjectives` list, a random element from the `names` list, and the `ranSuffix` variable, separated by the `separator` string. 
+    // And convert it to lower case
+    String generatedString = [_getRandomElement(adjectives), _getRandomElement(names), ranSuffix]
         .join(separator)
         .toLowerCase();
+    // If the user provided characterLength is greater than the generated string, then use the length of the generated string instead
+    if(characterLength > generatedString.length){
+      characterLength = generatedString.length;
+    }
+    // Return the substring from the generated string from the beginning to the user provided characterLength
+    return generatedString.substring(0,characterLength);
   }
+
+
 
   /// Get a random element from the list given
   dynamic _getRandomElement(List<dynamic> list) {
