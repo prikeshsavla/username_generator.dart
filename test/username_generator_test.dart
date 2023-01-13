@@ -121,4 +121,16 @@ void main() {
           ]));
     });
   });
+
+   group('Where characterLength was not provided for generateRandom() and when it is ', () {
+     final generator = UsernameGenerator();
+    test('generateRandom() with no character length provided', () {
+      String result = generator.generateRandom();
+      expect(result.length, lessThanOrEqualTo(12));
+    });
+    test('generateRandom() with character length provided', () {
+      String result = generator.generateRandom(characterLength: 8);
+      expect(result.length, 8);
+    });
+  });
 }
